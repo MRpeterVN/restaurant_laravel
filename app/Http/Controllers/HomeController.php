@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 use App\Models\MonAn;
@@ -14,8 +14,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+      
         $monAn = MonAn::all();
-        return view('home.index', compact('monAn'));
+          return view('home.index', [
+            'monAn' => $monAn,
+            
+        ]);
     }
 
     /**
